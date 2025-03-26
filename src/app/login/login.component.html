@@ -1,0 +1,23 @@
+<div class="login-form">
+    <h3>Login</h3>
+    <form (ngSubmit)= "showRegister ? onRegister() : onLogin()">
+      <input type="text" [(ngModel)]="username" name="username" placeholder="Username" required />
+      <input type="password" [(ngModel)]="password" name="password" placeholder="Password" required />
+
+      <div *ngIf="showRegister">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword" required />
+      </div>
+      <button type="submit">{{ showRegister ? 'Register' : 'Login' }}</button>
+      <!-- <button type="submit">Login</button> -->
+      <p>
+        <a (click)="toggleRegister()">
+          {{ showRegister ? 'Back to Login' : 'Register' }}
+        </a>
+      </p>
+    </form>
+</div>
+
+  <!-- <div>
+    <button (click)="register()">Register</button>
+  </div> -->
